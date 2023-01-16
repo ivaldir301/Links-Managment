@@ -1,4 +1,5 @@
 const pool = require("../database/index")
+
 const linksmanagmentController = {
     getLinksByUserId: async (req, res) => {
         try {
@@ -11,34 +12,21 @@ const linksmanagmentController = {
             console.log(error)
         }
     }, 
-
-   
+    
+    // Also build a function that when inserted the link in the database by a user,
+    // it generates a link_id for the link
     addLinksByUserId: async (req, res) => {
         try {
-            const linkId = randomNumberGenerator() 
-            const { title, label, link_adress, id } = req.body
+            const { link_id, title, label, link_adress, id_user } = req.body
+            const verificationQuery = "SELECT link_id, title, label, link_adress, id_user FROM Links WHERE title = ? AND id_user = ?"
+            const [links, linkFields] = await pool.query(verificationQuery, [title, id_user])
+            if(links[0]) return res.json({ error: "this link is already registered" })
 
-            // Check if the new random number generated is not equal to an existing id in the links table (altho very unlikely)
-            const SqlQuery = "SELECT link_id, title FROM Links WHERE title = ? AND id_user = ?"
-            const [links, fields2] = await pool.query(SqlQuery, [title, id])
-            if(links[0]) {
-                return res.json ({ error: "something went wrong, retry the operation" })   
-            }
-
-            const sqlQuery2 = "INSERT INTO Links (link_id, title, label, link_adress, id_user) VALUES (?, ?, ?, ?, ?);"
-            const [rows, fields] = await pool.query(sqlQuery2,  [linkId, title, label, link_adress, id])
-            
-            // Also build a function that when inserted the link in the database by a user
-            // it is generated a link_id for the link and them it updates the user's table to add the user's links table
-            const userLinksIdUpdateQuery = "INSERT INTO Links (his_link_id) VALUES (?)"
-            const [rows2, fields3] = await pool.query(userLinksIdUpdateQuery, [linkId])
+            const sqlQuery = "INSERT INTO Links (link_id, title, label, link_adress, id_user) VALUES (?, ?, ?, ?, ?);"
+            const [rows, fields] = await pool.query(sqlQuery,  [link_id, title, label, link_adress, id_user])
 
             res.json({
                 data: rows
-            })
-
-            res.json({
-                data: rows2
             })
         } catch (error) {
             console.log(error)
@@ -50,9 +38,9 @@ const linksmanagmentController = {
 
     editLinksByUserId: async (req, res) => {
         try {
-            const { title, label, link_adress,linkId} = req.body
-            const sqlQuery = "UPDATE Links SET title = ?, label = ?, link_adress = ? WHERE link_id = ?;"
-            const [rows, fields] = await pool.query(sqlQuery, [ title, label, link_adress, linkId])
+            const { title, linkId, newTitle, newLabel, newLinkAdress} = req.body
+            const sqlQuery = "UPDATE Links SET title = ?, label = ?, link_adress = ? WHERE title = ? AND link_id = ?;"
+            const [rows, fields] = await pool.query(sqlQuery, [newTitle, newLabel, newLinkAdress, title, linkId])
             res.json({
                 data: rows
             })
@@ -67,7 +55,7 @@ const linksmanagmentController = {
     deleteLinksByUserId: async (req, res) => {
         try {
             const { linkId } = req.params 
-            const [rows, fields] = await pool.query("DELETE FROM Links WHERE link_id = ?", [linkId])
+            const [rows, fields] = await pool.query("DELETE FROM Links WHERE link_id = ?;", [linkId])
             res.json({
                 data: rows
             })
@@ -80,12 +68,12 @@ const linksmanagmentController = {
     }
 }
 
-
+/*
 function randomNumberGenerator() {
     const length = 8    
     return Math.floor(Math.pow(10, length-1) + Math.random() * (Math.pow(10, length) - Math.pow(10, length-1) - 1));
 }
-
+*/
 
 module.exports = linksmanagmentController
 
