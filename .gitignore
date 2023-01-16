@@ -1,4 +1,5 @@
 /api/.env
+web_crawler/
 database/scripts.sql
 node_modules/
 .DS_Store
