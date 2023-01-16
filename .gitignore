@@ -4,3 +4,4 @@ database/scripts.sql
 node_modules/
 .DS_Store
 usersmanagment.controller.js.old
+usersmanagment.router.js
