@@ -5,6 +5,8 @@ Este api tem a capacidade de guardar os seus links favoritos, usando informaçoe
 
 O api esta hospedado na heroku.com, e sua base de dados esta na freedb.tech
 
+Tech stack utilizada foi NodeJs, Express, Mysql.
+
 ## Uso:
 
 ### links-managment-demo-2023.herokuapp.com/
