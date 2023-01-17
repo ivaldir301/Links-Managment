@@ -44,6 +44,6 @@ links-managment-demo-2023.herokuapp.com/api/v1/linksmanagment/
 
 links-managment-demo-2023.herokuapp.com/api/v1/linksmanagment/
 
-![alt text](https://github.com/ivaldir301/Devnology---Teste-/main/api/exampleScreenShots/linkDelition.png?raw=true)
+![alt text](https://github.com/ivaldir301/Devnology---Teste-/api/exampleScreenShots/linkDelition.png?raw=true)
 
 
