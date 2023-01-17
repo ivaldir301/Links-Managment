@@ -3,6 +3,8 @@
 
 Este api tem a capacidade de guardar os seus links favoritos, usando informaçoes como o endereço web, um titulo, um label.
 
+O api esta hospedado na heroku.com, e sua base de dados esta na freedb.tech
+
 ## Uso:
 
 ### links-managment-demo-2023.herokuapp.com/
