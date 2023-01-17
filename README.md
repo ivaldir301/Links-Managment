@@ -19,7 +19,7 @@ links-managment-demo-2023.herokuapp.com/api/v2/userauth
 
 ### Exemplo que retorna todos os links registrados por um utilizador(atraves do seu id)
 
-links-managment-demo-2023.herokuapp.com/api/v1/linksmanagment/8439278
+links-managment-demo-2023.herokuapp.com/api/v1/linksmanagment/[user id]
 
 ![alt text](./api/exampleScreenShots/linkConsultation.png?raw=true)
 
@@ -38,7 +38,7 @@ links-managment-demo-2023.herokuapp.com/api/v1/linksmanagment/
 
 ### Exemplo de deletar um link na base de dados(atraves do seu id)
 
-links-managment-demo-2023.herokuapp.com/api/v1/linksmanagment/
+links-managment-demo-2023.herokuapp.com/api/v1/linksmanagment/[link id]
 
 ![alt text](./api/exampleScreenShots/linkDelition.png?raw=true)
 
