@@ -19,7 +19,7 @@ Para gravar um utilizador, requisita-se:
 
 links-managment-demo-2023.herokuapp.com/api/v2/userauth
 
-![alt text](https://github.com/ivaldir301/Devnology---Teste-/main/api/exampleScreenShots/userRegistration.png?raw=true)
+![alt text](./api/exampleScreenShots/userRegistration.png?raw=true)
 
 #### Exemplo que retorna todos os links registrados por um utilizador(atraves do seu id)
 
