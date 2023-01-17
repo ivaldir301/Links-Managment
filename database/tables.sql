@@ -6,8 +6,7 @@ CREATE TABLE Users(
     nome VARCHAR(30) NOT NULL,
     email VARCHAR(30) NOT NULL,
     user_password VARCHAR(30) NOT NULL,
-    his_links_id INT,
-     PRIMARY KEY (id)
+    PRIMARY KEY (id)
  );
 
 CREATE TABLE Links(
