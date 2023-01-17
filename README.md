@@ -7,11 +7,7 @@ Este api tem a capacidade de guardar os seus links favoritos, usando informaçoe
 
 ### links-managment-demo-2023.herokuapp.com/
 
-Para gravar um utilizador, requisita-se:
-    - Um nome;
-    - Um id de 8 caracteres
-    - Um email
-    - E um password
+Para gravar um utilizador, requisita-se: um nome, um id de 8 caracteres, um email, um password.
 
 ### Exemplo gravando um utilizador com o api (com a ferramenta Postman)
 
