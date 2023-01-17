@@ -25,25 +25,25 @@ links-managment-demo-2023.herokuapp.com/api/v2/userauth
 
 links-managment-demo-2023.herokuapp.com/api/v1/linksmanagment/8439278
 
-
+![alt text](https://github.com/ivaldir301/Devnology---Teste-/blob/main/api/exampleScreenShots/linkConsultation.jpg?raw=true)
 
 #### Exemplo que grava links favoritos na base de dados(fornecendo o id do utilizador que quer registrar)
 
 links-managment-demo-2023.herokuapp.com/api/v1/linksmanagment/
 
-
+![alt text](https://github.com/ivaldir301/Devnology---Teste-/blob/main/api/exampleScreenShots/linkRegistration.jpg?raw=true)
 
 #### Exemplo que edita um link ja existente na base de dados(fornecendo o id do link)
 
 
 links-managment-demo-2023.herokuapp.com/api/v1/linksmanagment/
 
-
+![alt text](https://github.com/ivaldir301/Devnology---Teste-/blob/main/api/exampleScreenShots/linkEdition.jpg?raw=true)
 
 #### Exemplo de deletar um link na base de dados(atraves do seu id)
 
 links-managment-demo-2023.herokuapp.com/api/v1/linksmanagment/
 
-
+![alt text](https://github.com/ivaldir301/Devnology---Teste-/blob/main/api/exampleScreenShots/linkDelition.jpg?raw=true)
 
 
