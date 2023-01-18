@@ -15,7 +15,7 @@ Para gravar um utilizador, requisita-se: um nome, um id de 8 caracteres, um emai
 
 ### Exemplo gravando um utilizador com o api (com a ferramenta Postman)
 
-links-managment-demo-2023.herokuapp.com/api/v2/userauth
+links-managment-demo-2023.herokuapp.com/api/v2/userauth/register
 
 ![alt text](./api/exampleScreenShots/userRegistration.png?raw=true)
 
