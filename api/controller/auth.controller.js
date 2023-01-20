@@ -40,7 +40,7 @@ const authController = {
             const checkedPassword = await bcrypt.compare(password, hash)
 
             if(checkedPassword){
-                const acessToken = jwt.sign({ userId: id }, 'j23423lkjfwljer43rnsfgkl45', { expiresIn: '1h' })
+                const acessToken = jwt.sign({ userId: id }, 'j23423lkjfwljer43rnsfgkl45', { expiresIn: '1h' });
                 return res.json({
                     acessToken,
                     data: {
