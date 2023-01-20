@@ -35,7 +35,7 @@ const authController = {
             const [user, fields] = await pool.query(sqlQuery, [userEmail])
             if(!user[0]) return res.json({ error: "user credentials provided are invalid"})
 
-            const { password: hash, id, name } = user[0]
+            const { userPassword: hash, id, name } = user[0]
 
             const checkedPassword = await bcrypt.compare(userPassword, hash)
 
