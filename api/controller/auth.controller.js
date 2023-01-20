@@ -30,9 +30,9 @@ const authController = {
 
     userLogin: async (req, res) => {
         try {
-            const { userEmail, password } = req.body
+            const { email, password } = req.body
             const sqlQuery = "SELECT * FROM Users WHERE email = ?"
-            const [user, ] = await pool.query(sqlQuery, [userEmail])
+            const [user, ] = await pool.query(sqlQuery, [email])
             if(!user[0]) return res.json({ error: "user credentials provided are invalid"})
 
             const { password: hash, id, name } = user[0]
