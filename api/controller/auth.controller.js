@@ -1,5 +1,7 @@
 const pool = require('../database/index')
 const bcrypt = require('bcrypt')
+const jwt = require('jsonwebtoken')
+
 const authController = {
     verifyUserByEmailAndRegister: async (req, res) => {
         try {
@@ -18,6 +20,39 @@ const authController = {
             } else{
                 return res.json({ error: "error during the registration process"})
             }
+        } catch (error) {
+            console.log(error)
+            res.json({
+                error: error.message
+            })
+        }
+    },
+
+    userLogin: async (req, res) => {
+        try {
+            const { userEmail, userPassword } = req.body
+            const sqlQuery = "SELECT id, nome, email FROM Users WHERE email = ?"
+            const [user, fields] = await pool.query(sqlQuery, [userEmail])
+            if(!user[0]) return res.json({ error: "user credentials provided are invalid"})
+
+            const { password: hash, id, name } = user[0]
+
+            const checkedPassword = await bcrypt.compare(user[0], userPassword)
+
+            if(checkedPassword){
+                const acessToken = jwt.sign({  }, 'secret', { expiresIn: '1h' })
+                return res.json({
+                    acessToken,
+                    data: {
+                        userId: id,
+                        name,
+                        email
+                    }
+                })
+            }
+
+            return res.json({ error: "Password provided is incorrect" })
+
         } catch (error) {
             console.log(error)
             res.json({
