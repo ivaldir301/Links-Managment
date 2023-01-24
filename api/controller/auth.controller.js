@@ -31,13 +31,14 @@ const authController = {
     userLogin: async (req, res) => {
         try {
             const { email, password } = req.body
-            // const sqlQuery = "SELECT * FROM Users WHERE email = ?"
             const [user, ] = await pool.query("SELECT * FROM Users WHERE email = ?", [email])
             if(!user[0]) return res.json({ error: "user credentials provided are invalid"})
 
-            const { password: hash, id, nome } = user[0]
+            const { password: any, nome, id, user_password } = user[0]
 
-            const checkedPassword = await bcrypt.compare(password, hash)
+            console.log(  any, nome, id, user_password )
+
+            const checkedPassword = await bcrypt.compare(password, user_password)
 
             if(checkedPassword){
                 const acessToken = jwt.sign({ userId: id }, 'j23423lkjfwljer43rnsfgkl45', { expiresIn: '1h' });
